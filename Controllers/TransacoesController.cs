@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ABE_Auditoria.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/public/[controller]")]
     [ApiController]
     public class TransacoesController : ControllerBase
     {
