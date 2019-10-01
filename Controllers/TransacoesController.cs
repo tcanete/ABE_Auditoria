@@ -14,6 +14,9 @@ namespace ABE_Auditoria.Controllers
         public static List<Transacao> transacoes = new List<Transacao>();
 
         // GET
+        /// <summary>
+        /// Lista todas as transações
+        /// </summary>
         [HttpGet]
         public ActionResult<ICollection<Transacao>> Get()
         {
@@ -21,6 +24,9 @@ namespace ABE_Auditoria.Controllers
         }
 
         // GET
+        /// <summary>
+        /// Lista uma transação pelo id
+        /// </summary>
         [HttpGet("{id}")]
         public ActionResult<Transacao> Get(long id)
         {
@@ -34,6 +40,9 @@ namespace ABE_Auditoria.Controllers
             }
         }
 
+        /// <summary>
+        /// Lista as transações de um usuário
+        /// </summary>
         [HttpGet("usuario/{id}")]
         public ActionResult<Transacao> GetByUser(long id)
         {
@@ -48,10 +57,12 @@ namespace ABE_Auditoria.Controllers
         }
 
         // POST
+        /// <summary>
+        /// Insere umas transação
+        /// </summary>
         [HttpPost]
         public ActionResult<Transacao> Post([FromBody] Transacao transacao)
         {
-
             if (transacao.UsuarioId == 0 || transacao.Valor == 0 || transacao.Data == null || transacao.PedidoId == 0)
             {
                 return BadRequest();

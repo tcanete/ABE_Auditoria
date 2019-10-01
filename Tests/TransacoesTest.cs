@@ -27,7 +27,7 @@ namespace ABE_Auditoria.Tests
             var response = controller.Post(novaTransacao).Value as Transacao;
 
             // Assert
-            Assert.NotEqual(response.Id, 0);
+            Assert.NotEqual(0, response.Id);
         }
 
         [Fact]
