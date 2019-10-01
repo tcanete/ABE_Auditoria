@@ -11,11 +11,13 @@ namespace ABE_Auditoria.Controllers
     [ApiController]
     public class TransacoesController : ControllerBase
     {
+        public static List<Transacao> transacoes = new List<Transacao>();
+
         // GET
         [HttpGet]
-        public ActionResult<IEnumerable<Transacao>> Get()
+        public ActionResult<ICollection<Transacao>> Get()
         {
-            return Startup.transacoes;
+            return transacoes;
         }
 
         // GET
@@ -28,7 +30,7 @@ namespace ABE_Auditoria.Controllers
             }
             else
             {
-                return Startup.transacoes.Where(t => t.Id == id).FirstOrDefault();
+                return transacoes.Where(t => t.Id == id).FirstOrDefault();
             }
         }
 
@@ -41,7 +43,7 @@ namespace ABE_Auditoria.Controllers
             }
             else
             {
-                return Startup.transacoes.Where(t => t.UsuarioId == id).FirstOrDefault();
+                return transacoes.Where(t => t.UsuarioId == id).FirstOrDefault();
             }
         }
 
@@ -56,9 +58,9 @@ namespace ABE_Auditoria.Controllers
             }
             else
             {
-                transacao.Id = Startup.transacoes.Count + 1;
-                Startup.transacoes.Add(transacao);
-                return Ok(transacao);
+                transacao.Id = transacoes.Count + 1;
+                transacoes.Add(transacao);
+                return transacao;
             }
         }
     }

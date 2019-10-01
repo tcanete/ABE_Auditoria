@@ -19,8 +19,6 @@ namespace ABE_Auditoria
 {
     public class Startup
     {
-        public static List<Transacao> transacoes = new List<Transacao>();
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
